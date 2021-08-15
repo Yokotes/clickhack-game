@@ -1,0 +1,10 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.App__right-sidebar {
+  border-left: 2px solid black;
+  flex-shrink: 1;
+}

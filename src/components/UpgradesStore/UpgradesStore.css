@@ -1,0 +1,25 @@
+.UpgradesStore {
+  border-bottom: 2px solid black;
+  min-height: 200px;
+}
+
+.UpgradesStore__title {
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 1.1rem;
+}
+
+.UpgradesStore__items {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.Upgrade {
+  border: 1px solid black;
+  padding: 8px;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}

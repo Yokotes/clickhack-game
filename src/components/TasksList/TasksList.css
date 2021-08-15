@@ -1,0 +1,15 @@
+.TasksList {
+  border-right: 2px solid black;
+  padding: 10px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: 400px;
+}
+
+.TaskItem {
+  border: 1px solid black;
+  padding: 15px 10px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
