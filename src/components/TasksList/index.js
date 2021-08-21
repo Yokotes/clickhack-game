@@ -8,7 +8,6 @@ export default function TasksList() {
 
   const onTaskClick = (id) => {
     dispatch(setCurrentTask(id))
-    console.log(id);
   };
 
   return (

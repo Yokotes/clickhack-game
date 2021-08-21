@@ -1,4 +1,70 @@
 .WorkArea {
-  padding: 10px;
   flex-grow: 1;
+  position: relative;
+}
+
+.WorkArea__money {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #000;
+  padding: 5px 20px;
+  background-color: #fff;
+}
+
+/* WorkAreaTask styles */
+.WorkAreaTask__main-title {
+  padding: 10px 0;
+}
+
+.WorkAreaTask__title {
+  padding: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.WorkAreaTask__play-area {
+  height: 500px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.WorkAreaTask__do-btn {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.WorkAreaTask__do-btn:focus {
+  outline: none;
+}
+
+.WorkAreaTask__progress {
+  text-align: center;
+}
+
+.WorkAreaTask__active-slots {
+  border-bottom: 1px solid #000;
+}
+
+.WorkAreaTask__active-slots-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.WorkAreaTask__active-slot {
+  width: 55px;
+  height: 55px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.WorkAreaTask__reward-content {
+  padding: 10px;
 }

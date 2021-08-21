@@ -4,11 +4,13 @@ import { all } from '@redux-saga/core/effects';
 import tasksSlice from "./slices/tasksSlice";
 import upgradesSlice from "./slices/upgradesSlice";
 import inventorySlice from './slices/inventorySlice';
+import gameSlice from "./slices/gameSlice";
 
 const rootReducer = combineReducers({
   tasks: tasksSlice,
   upgrades: upgradesSlice,
   inventory: inventorySlice,
+  game: gameSlice,
 });
 
 const sagaMiddleware = createSagaMiddleware();

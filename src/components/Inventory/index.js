@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import InventoryContent from "./Inventory";
+import InventoryItem from "./InventoryItem";
 
 export default function Inventory() {
   const items = useSelector((state) => state.inventory.items);
@@ -10,3 +11,5 @@ export default function Inventory() {
     />
   )
 }
+
+export {InventoryItem};

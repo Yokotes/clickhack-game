@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const tasksSlice = createSlice({
   name: 'tasksSlice',
   initialState: {
-    current: {},
+    current: null,
     tasks: [
       {
         id: 0,
@@ -11,6 +11,11 @@ const tasksSlice = createSlice({
         description: 'Awesome description',
         img: '',
         progress: 0,
+        activeSlots: [],
+        reward: {
+          items: [],
+          money: 10,
+        }
       }
     ]
   },
@@ -24,7 +29,21 @@ const tasksSlice = createSlice({
     },
 
     setCurrentTask(state, {payload}) {
-      state.current = state.tasks[payload];
+      state.current = payload;
+    },
+
+    increaseTaskProgress(state, {payload}) {
+      const task = state.tasks.filter(task => task.id === payload.id)[0];
+      if (!task) return;
+
+      task.progress += payload.progress;
+    },
+
+    clearTaskProgress(state, {payload}) {
+      const task = state.tasks.filter(task => task.id === payload)[0];
+      if (!task) return;
+
+      task.progress = 0;
     }
   }
 });
@@ -35,4 +54,6 @@ export const {
   fillTasks,
   removeTask,
   setCurrentTask,
+  increaseTaskProgress,
+  clearTaskProgress
 } = tasksSlice.actions;

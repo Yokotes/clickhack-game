@@ -1,26 +1,32 @@
 import React from 'react';
 import './WorkArea.css';
+import WorkAreaTask from './WorkAreaTask';
 
 export default function WorkAreaContent({
-  id,
-  title,
-  description,
-  img,
-  progress
+  task,
+  money,
+  onHackClick
 }) {
   return (
     <div className='WorkArea'>
+      <div className="WorkArea__money">
+        {money}$
+      </div>
+      <div className="WorkArea__content">
       {
-        id !== undefined ? (
-          <div className="WorkArea__content">
-            {title}
-          </div>
-        ) : (
+        task !== undefined ? (
+          <WorkAreaTask
+            {...task}
+            onHackClick={onHackClick}
+          />
+        ) 
+        : (
           <div>
             Select task
           </div>
         )
       }
+      </div>
     </div>
   )
 }
