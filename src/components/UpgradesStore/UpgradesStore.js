@@ -3,7 +3,8 @@ import './UpgradesStore.css';
 import Upgrade from './Upgrade';
 
 export default function UpgradesStoreContent({
-  upgrades
+  upgrades,
+  onBuyClick,
 }) {
   return (
     <div className='UpgradesStore'>
@@ -15,6 +16,7 @@ export default function UpgradesStoreContent({
           upgrades.map(upgrade => (
             <Upgrade
               key={upgrade.id}
+              onBuyClick={() => onBuyClick(upgrade)}
               {...upgrade}
             />
           ))

@@ -3,7 +3,8 @@ import './Inventory.css';
 import InventoryItem from './InventoryItem';
 
 export default function InventoryContent({
-  items
+  items,
+  onItemClick
 }) {
   const cells = new Array(10).fill([]);
 
@@ -15,6 +16,7 @@ export default function InventoryContent({
     cells[i] = (
       <InventoryItem 
         {...item}
+        onItemClick={() => onItemClick(item)}
       />
     );
   }

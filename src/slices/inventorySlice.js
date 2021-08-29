@@ -6,10 +6,21 @@ const inventorySlice = createSlice({
     items: [
       {
         id: 0,
-        title: 'item 1',
+        title: 'Trojan',
+        type: 'bonus',
         img: '',
-        description: '',
-        count: 2
+        description: 'x2 click effect',
+        count: 2,
+        effectValue: 2,
+      },
+      {
+        id: 1,
+        title: 'Worm',
+        type: 'timer',
+        img: '',
+        description: 'Increase progress by 10 every 1 second',
+        count: 5,
+        effectValue: 10,
       }
     ]
   },
@@ -18,10 +29,22 @@ const inventorySlice = createSlice({
       state.items = payload;
     },
     addItem(state, {payload}) {
-      state.items.push(payload);
+      const item = state.items.filter((item) => item.id === payload.id)[0];
+
+      if (item) {
+        item.count += payload.count;
+      } else {
+        state.items.push(payload);
+      }
     },
     removeItem(state, {payload}) {
-      state.items = state.items.filter((item) => item.id !== payload);
+      const item = state.items.filter((item) => item.id === payload)[0];
+
+      if (item.count > 1) {
+        item.count--;
+      } else {
+        state.items = state.items.filter((item) => item.id !== payload);
+      }
     }
   }
 });

@@ -1,15 +1,20 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import store from '../../store';
+import React, { useEffect } from 'react';
 import './App.css';
 import TasksList from '../TasksList';
 import WorkArea from '../WorkArea';
 import UpgradesStore from '../UpgradesStore';
 import Inventory from '../Inventory';
+import { useDispatch } from 'react-redux';
+import { startGameTimer } from '../../slices/gameServiceSlice';
 
-export default function App() {
+export default function AppContent() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(startGameTimer());
+  }, [dispatch]);
+
   return (
-    <Provider store={store}>
       <div className='App'>
         <TasksList />
         <WorkArea />
@@ -18,6 +23,5 @@ export default function App() {
           <Inventory />
         </div>
       </div>
-    </Provider>
   )
 }

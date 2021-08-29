@@ -1,6 +1,6 @@
 import React from 'react';
-import { InventoryItem } from '../Inventory';
 import './WorkArea.css';
+import WorkAreaTaskItem from './WorkAreaTaskItem';
 
 export default function WorkAreaTask({
   id,
@@ -18,7 +18,7 @@ export default function WorkAreaTask({
     
     if (i > cells.length-1) cells.push([]);
     cells[i] = (
-      <InventoryItem 
+      <WorkAreaTaskItem 
         {...item}
       />
     );

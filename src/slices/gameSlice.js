@@ -4,6 +4,9 @@ const gameSlice = createSlice({
   name: 'gameSlice',
   initialState: {
     money: 0,
+    vars: {
+      click: 10,
+    }
   },
   reducers: {
     increaseMoney(state, {payload}) {
@@ -12,6 +15,9 @@ const gameSlice = createSlice({
     decreaseMoney(state, {payload}) {
       state.money -= payload;
     },
+    increaseVar(state, {payload}) {
+      state.vars[payload.type] += payload.value;
+    }
   }
 });
 
@@ -19,5 +25,6 @@ export default gameSlice.reducer;
 
 export const {
   decreaseMoney,
-  increaseMoney
+  increaseMoney,
+  increaseVar,
 } = gameSlice.actions;

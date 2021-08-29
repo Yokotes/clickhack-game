@@ -6,10 +6,16 @@ const upgradesSlice = createSlice({
     upgrades: [
       {
         id: 0,
-        title: 'Upgrade 1',
+        title: 'Click+',
         img: '',
-        description: '',
-        cost: 500
+        description: '+50% click effect',
+        cost: 500,
+        effects: [
+          {
+            type: 'click',
+            value: 0.5
+          }
+        ]
       }
     ],
   },

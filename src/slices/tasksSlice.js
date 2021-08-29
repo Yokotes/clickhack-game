@@ -14,7 +14,7 @@ const tasksSlice = createSlice({
         activeSlots: [],
         reward: {
           items: [],
-          money: 10,
+          money: 500,
         }
       }
     ]
@@ -44,6 +44,31 @@ const tasksSlice = createSlice({
       if (!task) return;
 
       task.progress = 0;
+    },
+    
+    clearTaskSlots(state, {payload}) {
+      const task = state.tasks.filter(task => task.id === payload)[0];
+      if (!task) return;
+
+      task.activeSlots = [];
+    },
+
+    addItemToActiveSlot(state, {payload}) {
+      const task = state.tasks.filter(task => task.id === state.current)[0];
+      if (!task) return;
+
+      const alreadyExist = task.activeSlots.filter(item => item.id === payload.id);
+
+      if (alreadyExist.length > 0) return;
+
+      task.activeSlots.push(payload);
+    },
+
+    removeItemFromActiveSlot(state, {payload}) {
+      const task = state.tasks.filter(task => task.id === state.current)[0];
+      if (!task) return;
+
+      task.activeSlots = task.activeSlots.filter(item => item.id !== payload.id);
     }
   }
 });
@@ -55,5 +80,8 @@ export const {
   removeTask,
   setCurrentTask,
   increaseTaskProgress,
-  clearTaskProgress
+  clearTaskProgress,
+  clearTaskSlots,
+  addItemToActiveSlot,
+  removeItemFromActiveSlot
 } = tasksSlice.actions;

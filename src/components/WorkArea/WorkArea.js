@@ -17,7 +17,7 @@ export default function WorkAreaContent({
         task !== undefined ? (
           <WorkAreaTask
             {...task}
-            onHackClick={onHackClick}
+            onHackClick={() => onHackClick(task)}
           />
         ) 
         : (

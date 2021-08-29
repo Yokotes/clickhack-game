@@ -6,10 +6,15 @@ export default function InventoryItem({
   img,
   title,
   description,
-  count
+  count,
+  onItemClick
 }) {
   return (
-    <div className='InventoryItem'>
+    <div className='InventoryItem'
+      title={description}
+      onClick={onItemClick}
+      draggable
+    >
       <div className="InventoryItem__title">
         {title}
       </div>

@@ -5,18 +5,21 @@ import tasksSlice from "./slices/tasksSlice";
 import upgradesSlice from "./slices/upgradesSlice";
 import inventorySlice from './slices/inventorySlice';
 import gameSlice from "./slices/gameSlice";
+import gameServiceSlice from "./slices/gameServiceSlice";
+import gameServiceWatcher from "./sagas/gameServiceSaga";
 
 const rootReducer = combineReducers({
   tasks: tasksSlice,
   upgrades: upgradesSlice,
   inventory: inventorySlice,
   game: gameSlice,
+  gameService: gameServiceSlice,
 });
 
 const sagaMiddleware = createSagaMiddleware();
 function* rootSaga() {
   yield all([
-
+    gameServiceWatcher(),
   ])
 }
 

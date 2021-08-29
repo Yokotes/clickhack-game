@@ -5,11 +5,13 @@ export default function Upgrade({
   id,
   img,
   title,
-  description
+  description,
+  onBuyClick,
+  cost
 }) {
   return (
-    <div className='Upgrade'>
-      {title}
+    <div className='Upgrade' onClick={onBuyClick} title={description}>
+      {title} ({cost})
     </div>
   )
 }
